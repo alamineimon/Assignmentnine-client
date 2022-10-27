@@ -4,12 +4,44 @@ import Form from "react-bootstrap/Form";
 import { Link } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { BsGithub } from "react-icons/bs";
-import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider, GithubAuthProvider } from "firebase/auth";
+import app from "../firebase/firebase.config";
 
 
+
+
+const auth = getAuth();
 
 
 const Register = () => {
+
+  const googleProvider = new GoogleAuthProvider();
+  const signInwithGoogle = () => {
+    signInWithPopup(auth, googleProvider)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        console.log("error:", error);
+      });
+  };
+  
+  const githubProvider = new GithubAuthProvider();
+  const githuWithGoogle = () => {
+    signInWithPopup(auth, githubProvider)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        console.log("error:", error);
+      });
+  };
+
+
+
+
 
   return (
     <div>
@@ -50,6 +82,14 @@ const Register = () => {
         <Button variant="primary" type="submit">
           Register Now
         </Button>
+        <div className="mt-3 mb-5 ">
+          <Button onClick={signInwithGoogle} variant="dark" className="me-3">
+            <FcGoogle /> Login
+          </Button>
+          <Button onClick={githuWithGoogle} variant="dark">
+            <BsGithub /> Login
+          </Button>
+        </div>
       </Form>
     </div>
   );

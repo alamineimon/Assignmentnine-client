@@ -2,8 +2,7 @@ import React from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { Link } from "react-router-dom";
-import { FcGoogle } from "react-icons/fc";
-import { BsGithub } from "react-icons/bs";
+
 
 
 const Login = (props) => {
@@ -42,14 +41,6 @@ const Login = (props) => {
         <Button variant="primary" type="submit">
           Login
         </Button>
-        <div className="mt-3 mb-5 ">
-          <Button variant="dark" className="me-3">
-            <FcGoogle /> Login
-          </Button>
-          <Button variant="dark">
-            <BsGithub /> Login
-          </Button>
-        </div>
       </Form>
     </div>
   );

@@ -19,21 +19,21 @@ function App() {
           element: <Home></Home>,
         },
         {
-          path: "/login",
-          element: <Login></Login>,
-        },
-        {
           path: "/register",
           element: <Register></Register>,
         },
         {
+          path: "/login",
+          element: <Login></Login>,
+        },
+        {
           path: "/blogs",
-          element:<Blogs></Blogs>
+          element: <Blogs></Blogs>,
         },
         {
           path: "/faq",
-          element:<FaQ></FaQ>
-        }
+          element: <FaQ></FaQ>,
+        },
       ],
     },
   ]);

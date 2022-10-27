@@ -5,10 +5,10 @@ import { Link } from "react-router-dom";
 
 const Login = (props) => {
   return (
-    <div className="mx-auto">
+    <div className="col-4 mx-auto ">
       <h1 className="mt-5">Please Login </h1>
 
-      <Form className="mt-5 " style={{ width: "50%" }}>
+      <Form className="mt-5 ">
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control

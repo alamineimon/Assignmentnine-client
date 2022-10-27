@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const Login = (props) => {
   return (
     <div className="col-4 mx-auto ">
-      <h1 className="mt-5">Please Login </h1>
+      <h1 className="mt-5 text-center">Please Login </h1>
 
       <Form className="mt-5 ">
         <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -38,15 +38,6 @@ const Login = (props) => {
         <Button variant="primary" type="submit">
           Login
         </Button>
-
-        <div className="mt-3 mb-5">
-          <Button variant="dark" className="me-3">
-            {" "}
-            Google
-          </Button>
-
-          <Button variant="dark">GitHub</Button>
-        </div>
       </Form>
     </div>
   );

@@ -2,22 +2,43 @@ import React from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { Link } from "react-router-dom";
+import { FcGoogle } from "react-icons/fc";
+import { BsGithub } from "react-icons/bs";
+
+
+
 
 const Register = () => {
     return (
-      <div>
-        <Form  className="col-4 mx-auto ">
+      <div >
+        <h1 className="mt-5 text-center">Please Register </h1>
+        <Form className="col-4 mx-auto ">
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Full Name</Form.Label>
-            <Form.Control name="name" id="name" type="text" placeholder="Enter Your Name" />
+            <Form.Control
+              name="name"
+              id="name"
+              type="text"
+              placeholder="Enter Your Name"
+            />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
-            <Form.Control  name="email" id="email"  type="email" placeholder="Enter email" />
+            <Form.Control
+              name="email"
+              id="email"
+              type="email"
+              placeholder="Enter email"
+            />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Password</Form.Label>
-            <Form.Control  name="password" id="password" type="password" placeholder="Password" />
+            <Form.Control
+              name="password"
+              id="password"
+              type="password"
+              placeholder="Password"
+            />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicCheckbox">
             <p>
@@ -25,14 +46,15 @@ const Register = () => {
             </p>
           </Form.Group>
           <Button variant="primary" type="submit">
-            Submit
+            Register Now
           </Button>{" "}
-          <div className="mt-3 mb-5">
+          <div className="mt-3 mb-5 ">
             <Button variant="dark" className="me-3">
-              Google siign in
+              <FcGoogle /> Login
             </Button>
-
-            <Button variant="dark"> GitHub</Button>
+            <Button variant="dark">
+              <BsGithub /> Login
+            </Button>
           </div>
         </Form>
       </div>

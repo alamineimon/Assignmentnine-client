@@ -1,13 +1,15 @@
 import React from 'react';
 import { Button, Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { SiTeamspeak } from "react-icons/si";
 
 const Header = (props) => {
   return (
     <Navbar bg="light" expand="lg">
       <Container>
         <Link to="/">
-          <Navbar.Brand>P TEAM</Navbar.Brand>
+          <SiTeamspeak className=" fs-2" />{" "}
+          <span className="ms-2 fs-4"> P TEAM</span>
         </Link>
         {/* <Navbar.Brand>P TEAM</Navbar.Brand>/ */}
 
@@ -17,7 +19,7 @@ const Header = (props) => {
             <Link to="/">
               <Button variant="light">Home</Button>
             </Link>
-            <Link to="/coures">
+            <Link to="/allproduct">
               <Button variant="light">Corses</Button>
             </Link>
             <Link to="/faq">

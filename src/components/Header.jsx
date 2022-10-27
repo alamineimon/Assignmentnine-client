@@ -1,29 +1,38 @@
 import React from 'react';
-import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import { Button, Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const Header = (props) => {
   return (
     <Navbar bg="light" expand="lg">
       <Container>
-        <Navbar.Brand href="#home">P TEAM</Navbar.Brand>
+        <Link to="/">
+          <Navbar.Brand>P TEAM</Navbar.Brand>
+        </Link>
+        {/* <Navbar.Brand>P TEAM</Navbar.Brand>/ */}
+
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#link">Link</Nav.Link>
-            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
-            </NavDropdown>
+          <Nav className="mx-auto ">
+            <Link to="/">
+              <Button variant="light">Home</Button>
+            </Link>
+            <Link to="/coures">
+              <Button variant="light">Corses</Button>
+            </Link>
+            <Link to="/faq">
+              <Button variant="light">FaQ</Button>
+            </Link>
+            <Link to="/blogs">
+              <Button variant="light">Blogs</Button>
+            </Link>
           </Nav>
+          <Link to="/login">
+            <Button variant="light">Login</Button>
+          </Link>
+          <Link to="/register">
+            <Button variant="light">Register</Button>
+          </Link>
         </Navbar.Collapse>
       </Container>
     </Navbar>

@@ -1,4 +1,9 @@
 .singlee{
-    height: 400px;
-    width: 300px;
+    display: flex;
+    flex-direction: row;
+}
+
+.singlee-btnn{
+    display: flex;
+    justify-content: space-between;
 }

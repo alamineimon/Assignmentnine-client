@@ -8,16 +8,22 @@ const CoursesCard  = () => {
     const singledData = useLoaderData()
 
     return (
-      <Card className='singlee'>
-        <Card.Img variant="top" className="p-4" src={singledData.img} />
-        <Card.Body>
-          <h4>{singledData.name}</h4>
-          <p>Published: {singledData.date}</p>
-          <div className="d-flex  mb-4 justify-content-betweeen align-items-center"></div>
-          <p>{singledData.describe}</p>
-          <Button variant="primary">Download PDf</Button>
-          <Button variant="primary">Rrad More</Button>
-        </Card.Body>
+      <Card className="singlee">
+        <div>
+          <Card.Img variant="top" className="p-4" src={singledData.img} />
+        </div>
+        <div>
+          <Card.Body>
+            <h4>{singledData.name}</h4>
+            <p>Published: {singledData.date}</p>
+            <div className="d-flex  mb-4 justify-content-betweeen align-items-center"></div>
+            <p>{singledData.describe}</p>
+            <div className="singlee-btnn">
+              <Button variant="primary">Download PDF</Button>
+              <Button variant="primary">Read More</Button>
+            </div>
+          </Card.Body>
+        </div>
       </Card>
     );
 }

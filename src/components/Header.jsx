@@ -25,9 +25,6 @@ const Header = (props) => {
             <Link to="/faq">
               <Button variant="light">FaQ</Button>
             </Link>
-            <Link to="/blogs">
-              <Button variant="light">Blogs</Button>
-            </Link>
           </Nav>
           <Link to="/login">
             <Button variant="light">Login</Button>

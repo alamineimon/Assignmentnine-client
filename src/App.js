@@ -29,10 +29,6 @@ function App() {
           element: <Login></Login>,
         },
         {
-          path: "/blogs",
-          element: <Blogs></Blogs>,
-        },
-        {
           path: "/faq",
           element: <FaQ></FaQ>,
         },

@@ -15,11 +15,13 @@ const RightSide = (props) => {
         {courses.map((course) => (
           <ListGroup key={course.id}>
             <Link to={`/courses/${course.id}`}>
-              <Button variant="light" className="mb-2 list-unstyled">
-                {course.name}
-              </Button>
+              <Link to={`/allproduct/${course.id}`}>
+                <Button variant="light" className="mb-2 list-unstyled">
+                  {course.name}
+                </Button>
+              </Link>
             </Link>
-            </ListGroup>
+          </ListGroup>
         ))}
       </div>
     );

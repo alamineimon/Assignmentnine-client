@@ -39,8 +39,7 @@ function App() {
         {
           path: "/allproduct/:id",
           element: <CoursesCard></CoursesCard>,
-          loader: ({ params }) =>
-            fetch(`https://server-site-alamineimon.vercel.app/allproduct/${params.id}`),
+          loader: ({ params }) =>fetch(`https://server-site-alamineimon.vercel.app/allproduct/${params.id}`),
         },
         {
           path: "/allproduct",

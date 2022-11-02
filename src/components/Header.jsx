@@ -1,8 +1,9 @@
 import React, { useContext } from 'react';
-import { Button, Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import { Button, Container, Image, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { SiTeamspeak } from "react-icons/si";
 import { AuthContext } from '../contexts/AuthProvider';
+import Tippy from '@tippyjs/react';
 
 const Header = (props) => {
   const { user, logOut, setUser } = useContext(AuthContext);
@@ -33,20 +34,31 @@ const Header = (props) => {
             <Link to="/allproduct">
               <Button variant="light">Corses</Button>
             </Link>
-            <Link to="/faq">
-              <Button variant="light">FaQ</Button>
+            <Link to="/blogs">
+              <Button variant="light">Blogs</Button>
             </Link>
           </Nav>
           <Nav.Link>
-            {user?.uid ? (
+            {user?.uid ? 
               <>
-                <Link to="/login">
-                  <Button onClick={logoutHandle} variant="light">
-                    Logout
-                  </Button>
-                </Link>
+                <div>
+                  <Tippy content={user?.displayName}>
+                    <Image
+                      style={{ height: "45px" }}
+                      className="me-2"
+                      roundedCircle
+                      src={user?.photoURL}
+                    ></Image>
+                  </Tippy>
+
+                  <Link to="/login">
+                    <Button onClick={logoutHandle} variant="light">
+                      Logout
+                    </Button>
+                  </Link>
+                </div>
               </>
-            ) : (
+             : 
               <>
                 <Link to="/login">
                   <Button variant="light">Login</Button>
@@ -55,7 +67,7 @@ const Header = (props) => {
                   <Button variant="light">Register</Button>
                 </Link>
               </>
-            )}
+            }
           </Nav.Link>
         </Navbar.Collapse>
       </Container>

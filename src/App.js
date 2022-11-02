@@ -5,18 +5,19 @@ import Main from "./layout/Main";
 import Home from "./components/Home";
 import Login from "./components/Login";
 import Register from "./components/Register";
-import Blogs from "./components/Blogs";
 import FaQ from "./components/FaQ";
 import Coures from "./components/Coures";
 import CoursesCard from "./components/CoursesCard";
 import SinggleCard from "./components/SinggleCard";
 import PrivateRoute from "./components/PrivateRoute";
+import ErrorPage from "./components/ErrorPage";
 
 function App() {
   const router = createBrowserRouter([
     {
       path: "/",
       element: <Main></Main>,
+      errorElement:<ErrorPage></ErrorPage>,
       children: [
         {
           path: "/",
@@ -31,7 +32,7 @@ function App() {
           element: <Login></Login>,
         },
         {
-          path: "/faq",
+          path: "/blogs",
           element: <FaQ></FaQ>,
         },
         {

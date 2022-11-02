@@ -1,4 +1,5 @@
 import React, { useContext }  from "react";
+import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -13,6 +14,7 @@ const Login = () => {
   const from = location.state?.from?.pathname || "/";
 
   const { signIn, setUser } = useContext(AuthContext);
+  const {error, setError} = useState()
 
 
   const handleSubmit = (event) => {
@@ -26,10 +28,13 @@ const Login = () => {
         const user = result.user;
         navigate(from, { replace: true });
         setUser(user)
+        setError("")
         console.log(user);
       })
       .catch((error) => {
         console.log("error:", error);
+        setError(error.message)
+        console.log(error);
       });
   };
 
@@ -67,6 +72,7 @@ const Login = () => {
         <Button variant="primary" type="submit">
           Login
         </Button>
+        <Form.Text className="text-danger mb-5">{error}</Form.Text>
       </Form>
     </div>
   );

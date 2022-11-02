@@ -1,35 +1,37 @@
 import React, { useContext }  from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthProvider";
 
 
 
 
 const Login = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
 
-  const { signIn } = useContext(AuthContext);
-  
-    const handleSubmit = (event) => {
-      event.preventDefault();
-      const form = event.target;
-      const name = form.name.value;
-      const email = form.email.value;
-      const password = form.password.value;
-
-      signIn(email, password)
-        .then((result) => {
-          const user = result.user;
-          console.log(user);
-        })
-        .catch((error) => {
-          console.log("error:", error);
-        });
-    };
+  const { signIn, setUser } = useContext(AuthContext);
 
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
 
+    signIn(email, password)
+      .then((result) => {
+        const user = result.user;
+        navigate(from, { replace: true });
+        setUser(user)
+        console.log(user);
+      })
+      .catch((error) => {
+        console.log("error:", error);
+      });
+  };
 
   return (
     <div className="col-4 mx-auto ">
@@ -68,6 +70,6 @@ const Login = () => {
       </Form>
     </div>
   );
-};
+};;
 
 export default Login;

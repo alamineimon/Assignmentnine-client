@@ -5,7 +5,15 @@ import { SiTeamspeak } from "react-icons/si";
 import { AuthContext } from '../contexts/AuthProvider';
 
 const Header = (props) => {
- const { user } = useContext(AuthContext);
+  const { user, logOut, setUser } = useContext(AuthContext);
+  const logoutHandle = () => {
+    logOut()
+    .then(setUser({}))
+     .catch((error) => {
+        console.log("error:", error);
+      })
+  
+  }
 
   return (
     <Navbar bg="light" expand="lg">
@@ -29,16 +37,26 @@ const Header = (props) => {
               <Button variant="light">FaQ</Button>
             </Link>
           </Nav>
-          <Link>
-            {
-              <Link to="/login">
-            <Button variant="light">Login</Button>
-            </Link>
-            <Link to="/register">
-            <Button variant="light">Register</Button>
-            </Link>
-            }
-          </Link>
+          <Nav.Link>
+            {user?.uid ? (
+              <>
+                <Link to="/login">
+                  <Button onClick={logoutHandle} variant="light">
+                    Logout
+                  </Button>
+                </Link>
+              </>
+            ) : (
+              <>
+                <Link to="/login">
+                  <Button variant="light">Login</Button>
+                </Link>
+                <Link to="/register">
+                  <Button variant="light">Register</Button>
+                </Link>
+              </>
+            )}
+          </Nav.Link>
         </Navbar.Collapse>
       </Container>
     </Navbar>

@@ -9,6 +9,8 @@ import Blogs from "./components/Blogs";
 import FaQ from "./components/FaQ";
 import Coures from "./components/Coures";
 import CoursesCard from "./components/CoursesCard";
+import SinggleCard from "./components/SinggleCard";
+import PrivateRoute from "./components/PrivateRoute";
 
 function App() {
   const router = createBrowserRouter([
@@ -35,7 +37,22 @@ function App() {
         {
           path: "/allproduct/:id",
           element: <CoursesCard></CoursesCard>,
-          loader: ({ params }) =>fetch(`https://server-site-alamineimon.vercel.app/allproduct/${params.id}`),
+          loader: ({ params }) =>
+            fetch(
+              `https://server-site-alamineimon.vercel.app/allproduct/${params.id}`
+            ),
+        },
+        {
+          path: "/userAccess/:id",
+          element: (
+            <PrivateRoute>
+              <SinggleCard></SinggleCard>
+            </PrivateRoute>
+          ),
+          loader: ({ params }) =>
+            fetch(
+              `https://server-site-alamineimon.vercel.app/allproduct/${params.id}`
+            ),
         },
         {
           path: "/allproduct",

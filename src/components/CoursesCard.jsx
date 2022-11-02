@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Card } from 'react-bootstrap';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import './Single.css'
 
 const CoursesCard  = () => {
@@ -20,7 +20,9 @@ const CoursesCard  = () => {
             <p>{singledData.describe}</p>
             <div className="singlee-btnn">
               <Button variant="primary">Download PDF</Button>
-              <Button variant="primary">Read More</Button>
+              <Link to={`/userAccess/${singledData.id}`}>
+                <Button variant="primary">Get Premium</Button>
+              </Link>
             </div>
           </Card.Body>
         </div>

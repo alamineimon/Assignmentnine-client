@@ -5,15 +5,15 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCEKgAmxScBNNv83XiVpeuOkm4Q0uN5dtQ",
-  authDomain: "auth-router-context-15dab.firebaseapp.com",
-  projectId: "auth-router-context-15dab",
-  storageBucket: "auth-router-context-15dab.appspot.com",
-  messagingSenderId: "167943132230",
-  appId: "1:167943132230:web:a7388f59588747016b6647",
+  apiKey: "AIzaSyAOSDjp573Seq9qO5a6dRyCY-CcpUsY6_w",
+  authDomain: "p-teams.firebaseapp.com",
+  projectId: "p-teams",
+  storageBucket: "p-teams.appspot.com",
+  messagingSenderId: "1062617345507",
+  appId: "1:1062617345507:web:850b23d851da8e6dfe84d6"
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-export default app
+export default app;

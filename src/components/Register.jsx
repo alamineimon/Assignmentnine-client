@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { Link } from "react-router-dom";
@@ -6,18 +6,24 @@ import { FcGoogle } from "react-icons/fc";
 import { BsGithub } from "react-icons/bs";
 import { getAuth, signInWithPopup, GoogleAuthProvider, GithubAuthProvider } from "firebase/auth";
 import app from "../firebase/firebase.config";
+import { AuthContext } from "../contexts/AuthProvider";
 
 
 
 
-const auth = getAuth();
+const auth = getAuth(app);
 
 
 const Register = () => {
 
+
+  const { createUser, providerLogin } = useContext(AuthContext);
+
+
+
   const googleProvider = new GoogleAuthProvider();
   const signInwithGoogle = () => {
-    signInWithPopup(auth, googleProvider)
+    providerLogin(googleProvider)
       .then((result) => {
         const user = result.user;
         console.log(user);
@@ -29,7 +35,7 @@ const Register = () => {
   
   const githubProvider = new GithubAuthProvider();
   const githuWithGoogle = () => {
-    signInWithPopup(auth, githubProvider)
+    providerLogin( githubProvider)
       .then((result) => {
         const user = result.user;
         console.log(user);
@@ -40,14 +46,38 @@ const Register = () => {
   };
 
 
+  const handleSubmit = event => {
+    event.preventDefault()
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    createUser(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        form.reset()
+      })
+      .catch((error) => {
+        console.log("error:", error);
+      });
+    
+
+  };
+
+
+
+
+
+
 
 
 
   return (
     <div>
       <h1 className="mt-5 text-center">Please Register </h1>
-      <Form className="col-4 mx-auto ">
-        <Form.Group className="mb-3" controlId="formBasicEmail">
+      <Form   onSubmit = { handleSubmit }  className="col-4 mx-auto ">
+        <Form.Group className="mb-3" >
           <Form.Label>Full Name</Form.Label>
           <Form.Control
             name="name"
@@ -56,7 +86,7 @@ const Register = () => {
             placeholder="Enter Your Name"
           />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Group className="mb-3" >
           <Form.Label>Email address</Form.Label>
           <Form.Control
             name="email"
@@ -65,7 +95,7 @@ const Register = () => {
             placeholder="Enter email"
           />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Group className="mb-3" >
           <Form.Label>Password</Form.Label>
           <Form.Control
             name="password"
@@ -74,7 +104,7 @@ const Register = () => {
             placeholder="Password"
           />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicCheckbox">
+        <Form.Group className="mb-3" >
           <p>
             Alladdy have an account ? <Link to="/login"> Sing in</Link>
           </p>

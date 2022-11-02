@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Button, Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { SiTeamspeak } from "react-icons/si";
+import { AuthContext } from '../contexts/AuthProvider';
 
 const Header = (props) => {
+ const { user } = useContext(AuthContext);
+
   return (
     <Navbar bg="light" expand="lg">
       <Container>
@@ -26,11 +29,15 @@ const Header = (props) => {
               <Button variant="light">FaQ</Button>
             </Link>
           </Nav>
-          <Link to="/login">
+          <Link>
+            {
+              <Link to="/login">
             <Button variant="light">Login</Button>
-          </Link>
-          <Link to="/register">
+            </Link>
+            <Link to="/register">
             <Button variant="light">Register</Button>
+            </Link>
+            }
           </Link>
         </Navbar.Collapse>
       </Container>

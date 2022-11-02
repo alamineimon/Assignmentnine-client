@@ -1,11 +1,17 @@
-import React, { useContext } from 'react';
-import { Button, Container, Image, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import React, { useContext } from "react";
+import { Button, Container, Image, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { SiTeamspeak } from "react-icons/si";
 import { AuthContext } from '../contexts/AuthProvider';
 import Tippy from '@tippyjs/react';
+import { ThemeContext } from "../App";
+import ReactSwitch from "react-switch";
+
 
 const Header = (props) => {
+
+const { theme, toggleTheme } = useContext(ThemeContext);
+
   const { user, logOut, setUser } = useContext(AuthContext);
   const logoutHandle = () => {
     logOut()
@@ -13,7 +19,6 @@ const Header = (props) => {
      .catch((error) => {
         console.log("error:", error);
       })
-  
   }
 
   return (
@@ -39,7 +44,7 @@ const Header = (props) => {
             </Link>
           </Nav>
           <Nav.Link>
-            {user?.uid ? 
+            {user?.uid ? (
               <>
                 <div>
                   <Tippy content={user?.displayName}>
@@ -58,7 +63,7 @@ const Header = (props) => {
                   </Link>
                 </div>
               </>
-             : 
+            ) : (
               <>
                 <Link to="/login">
                   <Button variant="light">Login</Button>
@@ -67,7 +72,13 @@ const Header = (props) => {
                   <Button variant="light">Register</Button>
                 </Link>
               </>
-            }
+            )}
+          </Nav.Link>
+          <Nav.Link>
+            <ReactSwitch
+              onChange={toggleTheme}
+              checked={theme === "dark"}
+            ></ReactSwitch>
           </Nav.Link>
         </Navbar.Collapse>
       </Container>

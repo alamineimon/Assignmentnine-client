@@ -5,7 +5,7 @@ const FaQ = (props) => {
       <div className="mb-5 p-3 ">
         <div className="container max-w-4xl px-10 py-6 mx-auto ">
           <div className="mt-3">
-            <h5>What is Cors?</h5>
+            <h4>What is Cors ?</h4>
 
             <p className="mt-2">
               As you've possibly already come across by now, CORS is an acronym
@@ -30,10 +30,10 @@ const FaQ = (props) => {
         </div>
         <div className="container max-w-4xl px-10 py-6 mx-auto rounded-lg shadow-sm dark:bg-gray-900">
           <div className="mt-3">
-            <h5>
-              Why are you using firebase? And What other options do you have to
-              implement authentication?
-            </h5>
+            <h4>
+              Why are you using firebase and What other options do you have to
+              implement authentication ?
+            </h4>
             <p className="mt-2">
               1. Indeed, Firebase is a less technical and time-saving
               alternative to writing full-fledged backend code for dynamic apps.
@@ -93,7 +93,7 @@ const FaQ = (props) => {
         </div>
         <div className="container max-w-4xl px-10 py-6 mx-auto rounded-lg shadow-sm dark:bg-gray-900">
           <div className="mt-3">
-            <h5>How does the private route work?</h5>
+            <h4>How does the private route work ?</h4>
             <p className="mt-2">
               Private Routes in React Router (also called Protected Routes)
               require a user being authorized to visit a route (read: page). So
@@ -112,11 +112,10 @@ const FaQ = (props) => {
         </div>
         <div className="container max-w-4xl px-10 py-6 mx-auto rounded-lg shadow-sm dark:bg-gray-900">
           <div className="mt-3">
-            <h5>What is Node ? How does Node work ?</h5>
+            <h4>What is Node ? How does Node work ?</h4>
             <p className="mt-2">
-              1. <br />
-              Javascript has existed since 1995 and has since taken over as the
-              dominant language for web development. For much of its life,
+              1. Javascript has existed since 1995 and has since taken over as
+              the dominant language for web development. For much of its life,
               JavaScript was used mainly for client-side scripting inside script
               tags executing in web browsers. This limitation meant that
               developers were often working in many different languages and
@@ -133,22 +132,22 @@ const FaQ = (props) => {
               JavaScript engine which also powers JS in browsers such as Google
               Chrome. As V8 supports new features in JavaScript, they are
               incorporated into Node.
-              <br />
-              2. <br />
-              Node.js is an open-source backend javascript runtime environment.
-              It is a used as backend service where javascript works on the
-              server-side of the application. This way javascript is used on
-              both frontend and backend. Node.js runs on chrome v8 engine which
-              converts javascript code into machine code, it is highly scalable,
-              lightweight, fast, and data-intensive. Working of Node.js: Node.js
-              accepts the request from the clients and sends the response, while
-              working with the request node.js handles them with a single
-              thread. To operate I/O operations or requests node.js use the
-              concept of threads. Thread is a sequence of instructions that the
-              server needs to perform. It runs parallel on the server to provide
-              the information to multiple clients. Node.js is an event loop
-              single-threaded language. It can handle concurrent requests with a
-              single thread without blocking it for one request.
+              <br /> <br />
+              2. Node.js is an open-source backend javascript runtime
+              environment. It is a used as backend service where javascript
+              works on the server-side of the application. This way javascript
+              is used on both frontend and backend. Node.js runs on chrome v8
+              engine which converts javascript code into machine code, it is
+              highly scalable, lightweight, fast, and data-intensive. Working of
+              Node.js: Node.js accepts the request from the clients and sends
+              the response, while working with the request node.js handles them
+              with a single thread. To operate I/O operations or requests
+              node.js use the concept of threads. Thread is a sequence of
+              instructions that the server needs to perform. It runs parallel on
+              the server to provide the information to multiple clients. Node.js
+              is an event loop single-threaded language. It can handle
+              concurrent requests with a single thread without blocking it for
+              one request.
             </p>
           </div>
           <div className="flex items-center justify-between mt-4">

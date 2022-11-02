@@ -11,8 +11,20 @@ import CoursesCard from "./components/CoursesCard";
 import SinggleCard from "./components/SinggleCard";
 import PrivateRoute from "./components/PrivateRoute";
 import ErrorPage from "./components/ErrorPage";
+import { createContext, useState } from "react";
+
+export const ThemeContext = createContext(null);
 
 function App() {
+
+
+const [theme, setTheme] = useState("light");
+
+const toggleTheme = () => {
+  setTheme((curr) => (curr === "light" ? "dark" : "light"));
+};
+
+
   const router = createBrowserRouter([
     {
       path: "/",
@@ -65,9 +77,11 @@ function App() {
   ]);
 
   return (
-    <div >
-      <RouterProvider router={router}></RouterProvider>
-    </div>
+    <ThemeContext.Provider value={{theme, toggleTheme }}>
+      <div id={theme}>
+        <RouterProvider router={router}></RouterProvider>
+      </div>
+    </ThemeContext.Provider>
   );
 }
 

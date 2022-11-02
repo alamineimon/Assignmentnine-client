@@ -3,7 +3,7 @@ import React from 'react';
 const FaQ = (props) => {
     return (
         <div>
-            <h2>faqqqq</h2>
+            <h1 className='text-center'>This  is  Optional Faq Section</h1>
         </div>
     );
 }
